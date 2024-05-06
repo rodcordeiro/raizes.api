@@ -1,4 +1,4 @@
-- [ ] categorias
+- [x] categorias
 - [ ] linhas
 - [ ] giras
 - [ ] giras_linha
