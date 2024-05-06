@@ -26,7 +26,7 @@ export class CategoryController {
     return await this._service.findAll();
   }
   @Get('/:id')
-  async view(@Param('id') id: string) {
+  async view(@Param('id') id: number) {
     return this._service.findBy({ id: id });
   }
   @Post()
@@ -34,11 +34,11 @@ export class CategoryController {
     return this._service.store(data);
   }
   @Put('/:id')
-  async update(@Param('id') id: string, @Body() data: CreateCategoryDTO) {
+  async update(@Param('id') id: number, @Body() data: CreateCategoryDTO) {
     return this._service.update(id, data);
   }
   @Delete('/:id')
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id') id: number) {
     return this._service.destroy(id);
   }
 }

@@ -43,13 +43,13 @@ export class CategoryServices {
     return await this._repository.save(category);
   }
 
-  async update(id: string, data: CreateCategoryDTO) {
+  async update(id: number, data: CreateCategoryDTO) {
     const user = await this._repository.findOneOrFail({ where: { id } });
     this._repository.merge(user, data);
     return await this._repository.save(user);
   }
 
-  async destroy(id: string) {
+  async destroy(id: number) {
     await this._repository.findOneOrFail({ where: { id } });
     await this._repository.delete({ id });
   }
