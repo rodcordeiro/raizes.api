@@ -1,4 +1,4 @@
-import { RegexHelper } from "./regex.util";
+import { RegexHelper } from './regex.util';
 
 export const StringUtils = {
   IsNotEmpty: (str: string) => {

@@ -19,9 +19,6 @@ export class UsersEntity extends BaseEntity {
   @Column()
   refreshToken: string;
 
-  @Column({ nullable: true, name: 'device_token' })
-  deviceToken?: string;
-
   /** Joins */
 
   /** Methods */
