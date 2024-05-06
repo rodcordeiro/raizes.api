@@ -65,8 +65,8 @@ async function bootstrap() {
    * ------------------------------------------------------
    */
   const config = new DocumentBuilder()
-    .setTitle('Chat')
-    .setDescription('Chat RestAPI documentation and examples')
+    .setTitle('Raizes API')
+    .setDescription('Raizes RestAPI documentation and examples')
     .setVersion(version)
     .addBearerAuth()
     .build();
