@@ -14,7 +14,7 @@ export class TbCategories1714973328259 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'name',
+            name: 'nome',
             type: 'varchar',
             isUnique: true,
           },

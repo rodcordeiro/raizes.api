@@ -6,7 +6,7 @@ import { BaseEntity } from '@/common/entities/base.entity';
 export class CategoryEntity extends BaseEntity {
   /** Columns */
   @Column()
-  name: string;
+  nome: string;
 
   /** Joins */
 

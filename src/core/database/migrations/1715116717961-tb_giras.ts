@@ -1,15 +1,10 @@
-import {
-  MigrationInterface,
-  QueryRunner,
-  Table,
-  TableForeignKey,
-} from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class TbLines1715076004763 implements MigrationInterface {
+export class TbGiras1715116717961 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'tb_linhas',
+        name: 'tb_giras',
         columns: [
           {
             name: 'id',
@@ -19,11 +14,11 @@ export class TbLines1715076004763 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'nome',
-            type: 'varchar',
+            name: 'gira',
+            type: 'date',
             isUnique: true,
           },
-          { name: 'categoria', type: 'int' },
+          { name: 'fechada', type: 'bit' },
           {
             name: 'created_at',
             type: 'timestamp',
@@ -39,21 +34,9 @@ export class TbLines1715076004763 implements MigrationInterface {
       }),
       true,
     );
-    await queryRunner.createForeignKey(
-      'tb_linhas',
-      new TableForeignKey({
-        columnNames: ['categoria'],
-        referencedColumnNames: ['id'],
-        referencedTableName: 'tb_categorias',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
-        name: 'FK_linha_categoria',
-      }),
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('tb_linhas', 'FK_linha_categoria');
-    await queryRunner.dropTable('tb_linhas');
+    await queryRunner.dropTable('tb_giras');
   }
 }

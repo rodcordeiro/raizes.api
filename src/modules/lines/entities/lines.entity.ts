@@ -7,7 +7,7 @@ import { CategoryEntity } from '@/modules/categories/entities/categories.entity'
 export class LineEntity extends BaseEntity {
   /** Columns */
   @Column()
-  name: string;
+  nome: string;
 
   /** Joins */
 
@@ -16,10 +16,10 @@ export class LineEntity extends BaseEntity {
     nullable: false,
   })
   @JoinColumn({
-    name: 'category',
+    name: 'categoria',
     referencedColumnName: 'id',
   })
-  category: number;
+  categoria: number;
 
   /** Methods */
 }

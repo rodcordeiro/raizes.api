@@ -30,10 +30,10 @@ export class CategoryServices {
 
   async store(data: CreateCategoryDTO) {
     const alreadyRegistered = await this._repository.findOneBy({
-      name: data.name,
+      nome: data.nome,
     });
     if (alreadyRegistered)
-      throw new BadRequestException(`Categoria ${data.name} já existe`);
+      throw new BadRequestException(`Categoria ${data.nome} já existe`);
     const category = this._repository.create(data);
     return await this._repository.save(category);
   }

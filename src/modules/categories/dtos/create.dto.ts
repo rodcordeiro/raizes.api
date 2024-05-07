@@ -3,7 +3,7 @@ import { z } from 'nestjs-zod/z';
 import { ApiProperty } from '@nestjs/swagger';
 
 const CreateCategorySchema = z.object({
-  name: z.string(),
+  nome: z.string(),
 });
 
 export class CreateCategoryDTO extends createZodDto(CreateCategorySchema) {
@@ -12,5 +12,5 @@ export class CreateCategoryDTO extends createZodDto(CreateCategorySchema) {
    * @example Orixá
    */
   @ApiProperty()
-  name: string;
+  nome: string;
 }

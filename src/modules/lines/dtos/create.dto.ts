@@ -3,8 +3,8 @@ import { z } from 'nestjs-zod/z';
 import { ApiProperty } from '@nestjs/swagger';
 
 const CreateLineSchema = z.object({
-  name: z.string(),
-  category: z.number(),
+  nome: z.string(),
+  categoria: z.number(),
 });
 
 export class CreateLineDTO extends createZodDto(CreateLineSchema) {
@@ -13,10 +13,10 @@ export class CreateLineDTO extends createZodDto(CreateLineSchema) {
    * @example Logun Edé
    */
   @ApiProperty()
-  name: string;
+  nome: string;
   /**
    * Category of the line
    * @Example 1
    */
-  category: number;
+  categoria: number;
 }
