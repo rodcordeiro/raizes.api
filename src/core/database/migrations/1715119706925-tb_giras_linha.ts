@@ -5,11 +5,11 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export class TbLines1715076004763 implements MigrationInterface {
+export class TbGirasLinha1715119706925 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'tb_linhas',
+        name: 'tb_giras_linhas',
         columns: [
           {
             name: 'id',
@@ -19,11 +19,10 @@ export class TbLines1715076004763 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'nome',
-            type: 'varchar',
-            isUnique: true,
+            name: 'linha',
+            type: 'int',
           },
-          { name: 'categoria', type: 'int' },
+          { name: 'gira', type: 'int' },
           {
             name: 'created_at',
             type: 'timestamp',
@@ -40,20 +39,32 @@ export class TbLines1715076004763 implements MigrationInterface {
       true,
     );
     await queryRunner.createForeignKey(
-      'tb_linhas',
+      'tb_giras_linhas',
       new TableForeignKey({
-        columnNames: ['categoria'],
+        columnNames: ['linha'],
         referencedColumnNames: ['id'],
-        referencedTableName: 'tb_categorias',
+        referencedTableName: 'tb_linhas',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
-        name: 'FK_linha_categoria',
+        name: 'FK_linha_linha',
+      }),
+    );
+    await queryRunner.createForeignKey(
+      'tb_giras_linhas',
+      new TableForeignKey({
+        columnNames: ['gira'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'tb_giras',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        name: 'FK_gira_linha',
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('tb_linhas', 'FK_linha_categoria');
-    await queryRunner.dropTable('tb_linhas');
+    await queryRunner.dropForeignKey('tb_giras_linhas', 'FK_gira_linha');
+    await queryRunner.dropForeignKey('tb_giras_linhas', 'FK_linha_linha');
+    await queryRunner.dropTable('tb_giras_linhas');
   }
 }

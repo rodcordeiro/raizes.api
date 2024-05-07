@@ -5,6 +5,7 @@ import { UsersModule } from '@/modules/users/users.module';
 import { AuthModule } from '@/modules/auth/auth.module';
 import { CategoriesModule } from '@/modules/categories/categories.module';
 import { LinesModule } from '@/modules/lines/lines.module';
+import { GirasModule } from '@/modules/giras/giras.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { LinesModule } from '@/modules/lines/lines.module';
     AuthModule,
     CategoriesModule,
     LinesModule,
+    GirasModule,
   ],
   controllers: [],
   providers: [],

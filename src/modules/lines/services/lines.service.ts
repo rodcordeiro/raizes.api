@@ -30,10 +30,10 @@ export class LineServices {
 
   async store(data: CreateLineDTO) {
     const alreadyRegistered = await this._repository.findOneBy({
-      name: data.name,
+      nome: data.nome,
     });
     if (alreadyRegistered)
-      throw new BadRequestException(`Line ${data.name} already exists`);
+      throw new BadRequestException(`Line ${data.nome} already exists`);
     const category = this._repository.create(data);
     return await this._repository.save(category);
   }

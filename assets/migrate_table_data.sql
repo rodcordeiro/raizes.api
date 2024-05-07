@@ -15,7 +15,9 @@
 -- ----------------------------------------------------------------
 -- -- FORCED ROLLBACK 
 -- drop table tb_user;
+-- drop table tb_giras_linhas;
 -- drop table tb_linhas;
+-- drop table tb_giras;
 -- drop table tb_categorias;
 -- drop table tb_migrations;
 -- ----------------------------------------------------------------
