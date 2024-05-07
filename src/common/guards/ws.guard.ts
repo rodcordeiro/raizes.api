@@ -7,9 +7,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import { Reflector } from '@nestjs/core';
 import { EncryptUtils } from '../utils/encrypt.util';
-
-// import { EncryptUtils } from '@/common/utils/encrypt.util';
-// import { ENV_VARIABLES } from '@/common/config/env.config';
+import { ENV_VARIABLES } from '../config/env.config';
 
 @Injectable()
 export class JwtWsGuard implements CanActivate {
@@ -37,8 +35,9 @@ export class JwtWsGuard implements CanActivate {
 
       const data = EncryptUtils.decrypt(
         decode.payload as string,
-        process.env.ENC_SECRET,
+        ENV_VARIABLES.ENC_SECRET,
       );
+      console.log(data);
       //   context.switchToHttp().getRequest().user = decode;
       return true;
     } catch (error) {

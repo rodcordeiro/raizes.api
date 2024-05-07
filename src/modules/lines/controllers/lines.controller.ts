@@ -3,22 +3,24 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { CategoryServices } from '../services/categories.service';
-import { CreateCategoryDTO } from '../dtos/create.dto';
+import { LineServices } from '../services/lines.service';
+import { CreateLineDTO } from '../dtos/create.dto';
 
-@ApiTags('Categorias')
+@ApiTags('Linhas')
 @Controller({
   version: '1',
-  path: '/categories',
+  path: '/lines',
 })
-export class CategoryController {
-  constructor(private readonly _service: CategoryServices) {}
+export class LineController {
+  constructor(private readonly _service: LineServices) {}
 
   @Get()
   async index() {
@@ -29,14 +31,17 @@ export class CategoryController {
     return this._service.findBy({ id: id });
   }
   @Post()
-  async create(@Body() data: CreateCategoryDTO) {
+  @HttpCode(HttpStatus.CREATED)
+  async create(@Body() data: CreateLineDTO) {
     return this._service.store(data);
   }
   @Put('/:id')
-  async update(@Param('id') id: number, @Body() data: CreateCategoryDTO) {
+  @HttpCode(HttpStatus.OK)
+  async update(@Param('id') id: number, @Body() data: CreateLineDTO) {
     return this._service.update(id, data);
   }
   @Delete('/:id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   async remove(@Param('id') id: number) {
     return this._service.destroy(id);
   }

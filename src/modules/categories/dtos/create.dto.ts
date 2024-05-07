@@ -1,6 +1,6 @@
 import { createZodDto } from 'nestjs-zod';
 import { z } from 'nestjs-zod/z';
-import {ApiProperty} from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 const CreateCategorySchema = z.object({
   name: z.string(),
