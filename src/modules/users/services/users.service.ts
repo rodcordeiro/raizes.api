@@ -55,18 +55,18 @@ export class UsersService {
     return await this._usersRepository.save(user);
   }
 
-  async update(id: string, data: UpdateUserDTO) {
+  async update(id: number, data: UpdateUserDTO) {
     const user = await this._usersRepository.findOneOrFail({ where: { id } });
     this._usersRepository.merge(user, data);
     return await this._usersRepository.save(user);
   }
 
-  async destroy(id: string) {
+  async destroy(id: number) {
     await this._usersRepository.findOneOrFail({ where: { id } });
     await this._usersRepository.delete({ id });
   }
 
-  async updateToken(id: string, refreshToken: string) {
+  async updateToken(id: number, refreshToken: string) {
     const user = await this._usersRepository.findOneOrFail({ where: { id } });
     this._usersRepository.merge(user, { refreshToken });
     await this._usersRepository.save(user);

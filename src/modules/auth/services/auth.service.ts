@@ -9,7 +9,7 @@ import { EncryptUtils } from '@/common/utils/encrypt.util';
 import DateManipulation from '@/common/utils/date.utils';
 
 interface JwtPayload {
-  id: string;
+  id: number;
   username: string;
 }
 

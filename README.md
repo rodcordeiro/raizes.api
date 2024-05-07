@@ -1,5 +1,5 @@
 - [x] categorias
-- [ ] linhas
+- [x] linhas
 - [ ] giras
 - [ ] giras_linha
 - [ ] ritmos
@@ -9,3 +9,4 @@
 - [ ] membros
 - [ ] guias
 - [ ] pontos riscados
+
