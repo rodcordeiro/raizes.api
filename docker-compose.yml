@@ -2,18 +2,16 @@ version: '3.8'
 
 services:
   api:
-    image: rodcordeiro/api:latest
-    container_name: rod_api
-    depends_on:
-      - api_db
-    restart: always
+    image: rodcordeiro/raizes-api:latest
+    container_name: rodcordeiro/raizes-api
+    restart: unless-stoped
     ports:
       - '3340:80'
     env_file:
       - .env
     networks:
-      - rod
+      - raizes
 
 networks:
-  rod:
+  raizes:
     driver: bridge
