@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
 import { BaseEntity } from '@/common/entities/base.entity';
 import { LineEntity } from '@/modules/lines/entities/lines.entity';
@@ -13,6 +13,8 @@ export class GirasEntity extends BaseEntity {
   fechada: boolean;
 
   /** Joins */
+  @OneToMany(() => GirasLinhasEntity, linha => linha.gira)
+  linhas?: GirasLinhasEntity[];
 
   /** Methods */
 }
