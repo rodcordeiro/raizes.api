@@ -501,9 +501,9 @@
     simple-oauth2 "^5.0.0"
 
 "@fastify/secure-session@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@fastify/secure-session/-/secure-session-7.1.0.tgz#7ea388377b75d11f6f34cc346d6c9c39f12de018"
-  integrity sha512-x0ZW57+sf6fQaL05B3n64m7DRe81NAtFAKpCKKuqdX9FDqzOH5uQbfDDfVQy2/qhDn3N343RMlNtY1iQyvvA9A==
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/@fastify/secure-session/-/secure-session-7.5.1.tgz#ae2c26158f05e71fe4782281ae66e956274623b1"
+  integrity sha512-3xnTmlI4rhboyLtXtGDnrAXz8MLbrkwn9Owo4CZ2/GC9H3Eux0D5QWwKowxmn4VaFadj2wC67RoycFFi/46xaw==
   dependencies:
     "@fastify/cookie" "^9.0.4"
     fastify-plugin "^4.0.0"
@@ -4929,10 +4929,10 @@ node-fetch@^2.6.1, node-fetch@^2.6.7:
   dependencies:
     whatwg-url "^5.0.0"
 
-node-gyp-build@^4.6.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.0.tgz#3fee9c1731df4581a3f9ead74664369ff00d26dd"
-  integrity sha512-u6fs2AEUljNho3EYTJNBfImO5QTo/J/1Etd+NVdCj7qWKUSN/bSLkZwhDv7I+w/MSC6qJ4cknepkAYykDdK8og==
+node-gyp-build@^4.8.0:
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.1.tgz#976d3ad905e71b76086f4f0b0d3637fe79b6cda5"
+  integrity sha512-OSs33Z9yWr148JZcbZd5WiAXhh/n9z8TxQcdMhIOlpN9AhWpLfvVFO73+m77bBABQMaY9XSvIa+qk0jlI7Gcaw==
 
 node-int64@^0.4.0:
   version "0.4.0"
@@ -5835,11 +5835,11 @@ socket.io@4.7.5:
     socket.io-parser "~4.2.4"
 
 sodium-native@^4.0.0:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/sodium-native/-/sodium-native-4.0.5.tgz#76f6c742027df2db074725fedcb85d542a0c842c"
-  integrity sha512-YGimGhy7Ho6pTAAvuNdn3Tv9C2MD7HP89X1omReHat0Fd1mMnapGqwzb5YoHTAbIEh8tQmKP6+uLlwYCkf+EOA==
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/sodium-native/-/sodium-native-4.1.1.tgz#109bc924dd55c13db87c6dd30da047487595723c"
+  integrity sha512-LXkAfRd4FHtkQS4X6g+nRcVaN7mWVNepV06phIsC6+IZFvGh1voW5TNQiQp2twVaMf05gZqQjuS+uWLM6gHhNQ==
   dependencies:
-    node-gyp-build "^4.6.0"
+    node-gyp-build "^4.8.0"
 
 sonic-boom@^3.7.0:
   version "3.8.0"
