@@ -42,7 +42,7 @@ export class GirasController {
   async remove(@Param('id') id: number) {
     return this._service.destroy(id);
   }
-  @Post('/:id')
+  @Post('/:id/assign')
   async assign(@Param('id') id: number, @Body() data: AssignLineDTO) {
     return this._service.assignLine(id, data);
   }

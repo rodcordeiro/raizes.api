@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { GirasEntity } from '../entities/giras.entity';
+import { GirasEntity, GirasLinhasEntity } from '../entities/giras.entity';
 
 export const girasProviders = [
   {
@@ -9,4 +9,11 @@ export const girasProviders = [
     inject: ['DATA_SOURCE'],
   },
 ];
-
+export const girasLinhasProviders = [
+  {
+    provide: 'GIRAS_LINHA_REPOSITORY',
+    useFactory: (dataSource: DataSource) =>
+      dataSource.getRepository(GirasLinhasEntity),
+    inject: ['DATA_SOURCE'],
+  },
+];
