@@ -9,6 +9,9 @@ export class LineEntity extends BaseEntity {
   @Column()
   nome: string;
 
+  @Column({ nullable: true })
+  canal_youtube?: string;
+
   /** Joins */
 
   @ManyToOne(() => CategoryEntity, {

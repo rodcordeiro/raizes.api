@@ -1,7 +1,7 @@
 - [x] categorias
 - [x] linhas
-- [ ] giras
-- [ ] giras_linha
+- [x] giras
+- [x] giras_linha
 - [ ] ritmos
 - [ ] pontos
 - [ ] upload arquivos

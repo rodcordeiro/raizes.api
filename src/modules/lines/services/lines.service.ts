@@ -3,6 +3,7 @@ import { FindOneOptions, Repository } from 'typeorm';
 
 import { LineEntity } from '../entities/lines.entity';
 import { CreateLineDTO } from '../dtos/create.dto';
+import { UpdateLineDTO } from '../dtos/update.dto';
 
 @Injectable()
 export class LineServices {
@@ -38,7 +39,7 @@ export class LineServices {
     return await this._repository.save(category);
   }
 
-  async update(id: number, data: CreateLineDTO) {
+  async update(id: number, data: UpdateLineDTO) {
     const user = await this._repository.findOneOrFail({ where: { id } });
     this._repository.merge(user, data);
     return await this._repository.save(user);

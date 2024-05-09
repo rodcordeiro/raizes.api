@@ -46,6 +46,7 @@ export class GirasService extends BaseService<GirasEntity> {
       await Promise.all(
         data.map(line => this._linesService.findBy({ id: line.linha })),
       );
+      await this._linhasRepository.delete({ gira: id });
       const details = this._linhasRepository.create(
         data.map(line => ({ ...line, gira: id })),
       );

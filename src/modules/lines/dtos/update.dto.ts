@@ -2,25 +2,25 @@ import { createZodDto } from 'nestjs-zod';
 import { z } from 'nestjs-zod/z';
 import { ApiProperty } from '@nestjs/swagger';
 
-const CreateLineSchema = z.object({
-  nome: z.string(),
-  categoria: z.number(),
+const UpdateLineSchema = z.object({
+  nome: z.string().optional(),
+  categoria: z.number().optional(),
   canal_youtube: z.string().url().optional(),
 });
 
-export class CreateLineDTO extends createZodDto(CreateLineSchema) {
+export class UpdateLineDTO extends createZodDto(UpdateLineSchema) {
   /**
    * Name of the category.
    * @example Logun Edé
    */
   @ApiProperty()
-  nome: string;
+  nome?: string;
   /**
    * Category of the line
    * @Example 1
    */
   @ApiProperty()
-  categoria: number;
+  categoria?: number;
 
   /**
    * Youtube channel url.

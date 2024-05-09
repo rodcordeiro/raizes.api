@@ -9,9 +9,12 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
+import { Auth } from '@/common/decorators/auth.decorator';
+
 import { CategoryServices } from '../services/categories.service';
 import { CreateCategoryDTO } from '../dtos/create.dto';
 
+@Auth()
 @ApiTags('Categorias')
 @Controller({
   version: '1',

@@ -11,20 +11,21 @@
 --        A.categoria 
 --   FROM icnt_linha A
 -- -- ----------------------------------------------------------
+-- -- RITMOS
+-- INSERT INTO tb_ritmos(nome)
+--      SELECT ritmo AS nome 
+--        FROM icnt_ritmos
+-- -- ----------------------------------------------------------
 
--- ----------------------------------------------------------------
+-- -- --------------------------------------------------------------
 -- -- FORCED ROLLBACK 
 -- drop table tb_user;
 -- drop table tb_giras_linhas;
+-- -- drop table tb_pontos;
 -- drop table tb_linhas;
 -- drop table tb_giras;
+-- drop table tb_ritmos;
 -- drop table tb_categorias;
 -- drop table tb_migrations;
--- ----------------------------------------------------------------
-
-
-
-
-
-
+-- -- ----------------------------------------------------------------
 
