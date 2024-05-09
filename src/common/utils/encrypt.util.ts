@@ -1,4 +1,4 @@
-import {  TripleDES, enc, SHA256 } from 'crypto-js';
+import { TripleDES, enc, SHA256 } from 'crypto-js';
 import { Authenticate } from '@/common/interfaces/authenticated.interface';
 
 export const EncryptUtils = {
