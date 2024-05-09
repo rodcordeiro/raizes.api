@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class TbGiras1715116717961 implements MigrationInterface {
+export class TbRitmos1715256523970 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'tb_giras',
+        name: 'tb_ritmos',
         columns: [
           {
             name: 'id',
@@ -14,11 +14,10 @@ export class TbGiras1715116717961 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'gira',
-            type: 'date',
+            name: 'nome',
+            type: 'varchar',
             isUnique: true,
           },
-          { name: 'fechada', type: 'tinyint', length: '1' },
           {
             name: 'created_at',
             type: 'timestamp',
@@ -37,6 +36,6 @@ export class TbGiras1715116717961 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('tb_giras');
+    await queryRunner.dropTable('tb_ritmos');
   }
 }

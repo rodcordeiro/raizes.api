@@ -11,17 +11,20 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { LineServices } from '../services/lines.service';
-import { CreateLineDTO } from '../dtos/create.dto';
-import { UpdateLineDTO } from '../dtos/update.dto';
+import { Auth } from '@/common/decorators/auth.decorator';
 
-@ApiTags('Linhas')
+import { RythmsService } from '../services/rythms.service';
+import { CreateRythmDTO } from '../dtos/create.dto';
+import { UpdateRythmDTO } from '../dtos/update.dto';
+
+@Auth()
+@ApiTags('Ritmos')
 @Controller({
   version: '1',
-  path: '/lines',
+  path: '/rythm',
 })
-export class LineController {
-  constructor(private readonly _service: LineServices) {}
+export class RythmsController {
+  constructor(private readonly _service: RythmsService) {}
 
   @Get()
   async index() {
@@ -33,12 +36,12 @@ export class LineController {
   }
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  async create(@Body() data: CreateLineDTO) {
+  async create(@Body() data: CreateRythmDTO) {
     return this._service.store(data);
   }
   @Put('/:id')
   @HttpCode(HttpStatus.OK)
-  async update(@Param('id') id: number, @Body() data: UpdateLineDTO) {
+  async update(@Param('id') id: number, @Body() data: UpdateRythmDTO) {
     return this._service.update(id, data);
   }
   @Delete('/:id')

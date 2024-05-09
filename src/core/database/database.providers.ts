@@ -24,7 +24,6 @@ export const databaseProviders = [
         migrations: [migrationsPath],
         synchronize: false,
         migrationsRun: true,
-        // entityPrefix: 'tb_',
         migrationsTableName: 'tb_migrations',
         logging: true,
         name: 'database',

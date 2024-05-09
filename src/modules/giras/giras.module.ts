@@ -2,12 +2,16 @@ import { Module } from '@nestjs/common';
 
 import { GirasController } from './controllers/giras.controller';
 import { GirasService } from './services/giras.service';
-import { girasProviders } from './providers/giras.provider';
+import {
+  girasLinhasProviders,
+  girasProviders,
+} from './providers/giras.provider';
+import { LinesModule } from '../lines/lines.module';
 
 @Module({
-  imports: [],
+  imports: [LinesModule],
   controllers: [GirasController],
-  providers: [...girasProviders, GirasService],
+  providers: [...girasProviders, ...girasLinhasProviders, GirasService],
   exports: [GirasService],
 })
 export class GirasModule {}

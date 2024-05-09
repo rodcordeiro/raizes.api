@@ -9,7 +9,7 @@ export class GirasEntity extends BaseEntity {
   @Column()
   gira: string;
 
-  @Column()
+  @Column({ type: 'bool' })
   fechada: boolean;
 
   /** Joins */
@@ -22,11 +22,11 @@ export class GirasEntity extends BaseEntity {
 @Entity('tb_giras_linhas')
 export class GirasLinhasEntity extends BaseEntity {
   /** Columns */
-  @Column()
+  @Column({ type: 'bool' })
   festa: boolean;
 
   /** Joins */
-  @ManyToOne(() => GirasEntity, {
+  @ManyToOne(() => GirasEntity, gira => gira.linhas, {
     eager: true,
     nullable: false,
   })
@@ -34,7 +34,7 @@ export class GirasLinhasEntity extends BaseEntity {
     name: 'gira',
     referencedColumnName: 'id',
   })
-  gira: string;
+  gira: number;
 
   @ManyToOne(() => LineEntity, {
     eager: true,
@@ -44,7 +44,7 @@ export class GirasLinhasEntity extends BaseEntity {
     name: 'linha',
     referencedColumnName: 'id',
   })
-  linha: string;
+  linha: number;
 
   /** Methods */
 }

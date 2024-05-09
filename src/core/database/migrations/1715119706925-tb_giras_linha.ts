@@ -23,7 +23,7 @@ export class TbGirasLinha1715119706925 implements MigrationInterface {
             type: 'int',
           },
           { name: 'gira', type: 'int' },
-          { name: 'festa', type: 'bit' },
+          { name: 'festa', type: 'tinyint', length: '1' },
           {
             name: 'created_at',
             type: 'timestamp',
