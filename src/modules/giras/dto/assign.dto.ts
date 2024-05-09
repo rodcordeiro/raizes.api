@@ -8,7 +8,6 @@ const AssignLineSchema = z.object({
 });
 
 export class AssignLineDTO extends createZodDto(AssignLineSchema) {
-  
   /**
    * Se a gira foi festa para a linha
    * @example true
@@ -21,4 +20,24 @@ export class AssignLineDTO extends createZodDto(AssignLineSchema) {
    */
   @ApiProperty()
   linha: number;
+}
+
+const UpdateAssignLineSchema = z.object({
+  festa: z.boolean().optional(),
+  linha: z.number().optional(),
+});
+
+export class UpdateAssignLineDTO extends createZodDto(UpdateAssignLineSchema) {
+  /**
+   * Se a gira foi festa para a linha
+   * @example true
+   */
+  @ApiProperty()
+  festa?: boolean;
+  /**
+   * Linha tocada
+   * @example 4
+   */
+  @ApiProperty()
+  linha?: number;
 }

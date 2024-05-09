@@ -18,7 +18,7 @@ export class TbGiras1715116717961 implements MigrationInterface {
             type: 'date',
             isUnique: true,
           },
-          { name: 'fechada', type: 'bit' },
+          { name: 'fechada', type: 'tinyint', length: '1' },
           {
             name: 'created_at',
             type: 'timestamp',

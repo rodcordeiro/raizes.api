@@ -1,16 +1,16 @@
--- ----------------------------------------------------------------
+-- -- --------------------------------------------------------------
 -- -- CATEGORIAS
--- INSERT INTO tb_categorias(name)
--- SELECT A.categoria as name
---   FROM icnt_categoria_linha A;
--- ----------------------------------------------------------------
--- -- LINHAS
--- INSERT INTO tb_linhas(name,category)
--- SELECT A.linha as name,
---        A.categoria as category
---   FROM icnt_linha A
--- ----------------------------------------------------------------
+-- INSERT INTO tb_categorias(nome)
+-- SELECT A.categoria as nome
 
+--   FROM icnt_categoria_linha A;
+-- -- --------------------------------------------------------------
+-- -- LINHAS
+-- INSERT INTO tb_linhas(nome,categoria)
+-- SELECT A.linha as nome,
+--        A.categoria 
+--   FROM icnt_linha A
+-- -- ----------------------------------------------------------
 
 -- ----------------------------------------------------------------
 -- -- FORCED ROLLBACK 

@@ -3,6 +3,8 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -12,7 +14,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { GirasService } from '../services/giras.service';
 import { CreateGiraDTO } from '../dto/create.dto';
 import { UpdateGiraDTO } from '../dto/update.dto';
-import { AssignLineDTO } from '../dto/assign.dto';
+import { AssignLineDTO, UpdateAssignLineDTO } from '../dto/assign.dto';
 
 @ApiTags('Giras')
 @Controller({
@@ -38,12 +40,22 @@ export class GirasController {
   async update(@Param('id') id: number, @Body() data: UpdateGiraDTO) {
     return this._service.update(id, data);
   }
+
   @Delete('/:id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   async remove(@Param('id') id: number) {
     return this._service.destroy(id);
   }
+
   @Post('/:id/assign')
-  async assign(@Param('id') id: number, @Body() data: AssignLineDTO) {
+  async assign(@Param('id') id: number, @Body() data: AssignLineDTO[]) {
     return this._service.assignLine(id, data);
+  }
+  @Put('/:id/assign')
+  async updateAssign(
+    @Param('id') id: number,
+    @Body() data: UpdateAssignLineDTO[],
+  ) {
+    return this._service.updateAssignes(id, data);
   }
 }

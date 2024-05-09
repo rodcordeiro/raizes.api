@@ -5,7 +5,7 @@ import { BaseService } from '@/common/services/base.service';
 import { LineServices } from '@/modules/lines/services/lines.service';
 
 import { GirasEntity, GirasLinhasEntity } from '../entities/giras.entity';
-import { AssignLineDTO } from '../dto/assign.dto';
+import { AssignLineDTO, UpdateAssignLineDTO } from '../dto/assign.dto';
 
 @Injectable()
 export class GirasService extends BaseService<GirasEntity> {
@@ -25,18 +25,30 @@ export class GirasService extends BaseService<GirasEntity> {
       relations: {
         linhas: true,
       },
-      // relationLoadStrategy: 'join',
     });
   }
 
-  async assignLine(id: number, data: AssignLineDTO) {
+  async assignLine(id: number, data: AssignLineDTO[]) {
     try {
-      await this._linesService.findBy({ id: data.linha });
-      const details = await this._linhasRepository.create({
-        gira: id,
-        linha: data.linha,
-        festa: data.festa,
-      });
+      await Promise.all(
+        data.map(line => this._linesService.findBy({ id: line.linha })),
+      );
+      const details = this._linhasRepository.create(
+        data.map(line => ({ ...line, gira: id })),
+      );
+      return this._linhasRepository.save(details);
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
+  }
+  async updateAssignes(id: number, data: UpdateAssignLineDTO[]) {
+    try {
+      await Promise.all(
+        data.map(line => this._linesService.findBy({ id: line.linha })),
+      );
+      const details = this._linhasRepository.create(
+        data.map(line => ({ ...line, gira: id })),
+      );
       return this._linhasRepository.save(details);
     } catch (err) {
       throw new BadRequestException(err);
