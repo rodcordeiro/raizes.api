@@ -29,6 +29,10 @@ export class PointsEntity extends BaseEntity {
     eager: true,
     nullable: false,
   })
+  @JoinColumn({
+    name: 'ritmo',
+    referencedColumnName: 'id',
+  })
   ritmo: number;
 
   /** Methods */

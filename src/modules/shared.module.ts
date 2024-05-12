@@ -7,6 +7,7 @@ import { CategoriesModule } from '@/modules/categories/categories.module';
 import { LinesModule } from '@/modules/lines/lines.module';
 import { GirasModule } from '@/modules/giras/giras.module';
 import { RythmsModule } from './rythms/rythms.module';
+import { PointsModule } from '@/modules/points/points.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { RythmsModule } from './rythms/rythms.module';
     RythmsModule,
     LinesModule,
     GirasModule,
+    PointsModule,
   ],
   controllers: [],
   providers: [],

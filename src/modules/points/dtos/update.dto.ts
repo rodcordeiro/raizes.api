@@ -2,26 +2,26 @@ import { createZodDto } from 'nestjs-zod';
 import { z } from 'nestjs-zod/z';
 import { ApiProperty } from '@nestjs/swagger';
 
-const CreatePointSchema = z.object({
-  letra: z.string(),
-  linha: z.number(),
-  ritmo: z.number(),
+const UpdatePointSchema = z.object({
+  letra: z.string().optional(),
+  linha: z.number().optional(),
+  ritmo: z.number().optional(),
   audio_url: z.string().url().optional(),
 });
 
-export class CreatePointDTO extends createZodDto(CreatePointSchema) {
+export class UpdatePointDTO extends createZodDto(UpdatePointSchema) {
   /**
    * lirycs of the music.
    * @example Logun Edé
    */
   @ApiProperty()
-  letra: string;
+  letra?: string;
   /** linha */
   @ApiProperty()
-  linha: number;
+  linha?: number;
   /** rythm */
   @ApiProperty()
-  ritmo: number;
+  ritmo?: number;
   /** link do audio */
   @ApiProperty()
   audio_url?: string;
