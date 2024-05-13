@@ -2,8 +2,8 @@
 - [x] linhas
 - [x] giras
 - [x] giras_linha
-- [ ] ritmos
-- [ ] pontos
+- [x] ritmos
+- [x] pontos
 - [ ] upload arquivos
 - [ ] usuarios (halfdone,must review)
 - [ ] membros
