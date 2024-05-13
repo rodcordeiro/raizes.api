@@ -491,10 +491,10 @@
     path-to-regexp "^6.1.0"
     reusify "^1.0.4"
 
-"@fastify/oauth2@^7.8.0":
-  version "7.8.0"
-  resolved "https://registry.yarnpkg.com/@fastify/oauth2/-/oauth2-7.8.0.tgz#0b35351aceec375baf9621cc6b14e388fbef8260"
-  integrity sha512-piQldGFUfAH0+SXM7Cw6hlanFmYnTWYtDC3EcbxNiQedAbr9SbGNxJynTHsvyKzRO7dupdxIdWA81k1egxKftQ==
+"@fastify/oauth2@^7.8.1":
+  version "7.8.1"
+  resolved "https://registry.yarnpkg.com/@fastify/oauth2/-/oauth2-7.8.1.tgz#975071b63fb283bf500dc57b625ab7f17e2a260f"
+  integrity sha512-PBIMizzgEOcUcttyfX1hC6CR9vESoI1lfNucBywgcqrxvknVg+zvBCgH2+oU8NvrpSDMtlY6nyuEYYZtVhDT7Q==
   dependencies:
     "@fastify/cookie" "^9.0.4"
     fastify-plugin "^4.5.1"
