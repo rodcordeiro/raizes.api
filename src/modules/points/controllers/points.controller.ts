@@ -17,7 +17,6 @@ import { PointsService } from '../services/points.service';
 import { CreatePointDTO } from '../dtos/create.dto';
 import { UpdatePointDTO } from '../dtos/update.dto';
 
-
 @ApiTags('Pontos')
 @Controller({
   version: '1',
