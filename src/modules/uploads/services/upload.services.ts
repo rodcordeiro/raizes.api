@@ -1,26 +1,38 @@
 import { Injectable } from '@nestjs/common';
-import {
-  mkdirSync,
-  createWriteStream,
-  // createReadStream,
-} from 'node:fs';
+import { FtpService } from 'nestjs-ftp';
+import { mkdirSync, createWriteStream, createReadStream } from 'node:fs';
 import { join } from 'node:path';
 
 @Injectable()
 export class UploadsService {
-  constructor() {}
+  constructor(private readonly _ftpService: FtpService) {}
 
-  receiveFile(file: File) {
-    const ext = file.originalname.split('.').reverse()[0],
-      name = file.originalname.replace(/\W/gi, '_');
+  async uploadToFtp(path: string, name: string) {
+    try {
+      const _data = createReadStream(path);
+      await this._ftpService.upload(_data, '/pontos/' + name);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 
-    const path = join('./', 'uploaded', `${name}.${ext}`);
+  async receiveFile(file: File) {
+    const ext = file.originalname.split('.').reverse()[0];
+    const name = `${new Date().getTime()}_${Math.floor(Math.random() * 666)}`;
+    const parsedName = `${name}.${ext}`;
+
+    const path = join('./', 'uploaded', parsedName);
     const _file = createWriteStream(path);
-    // const _data = createReadStream(_file.path);
 
     _file.write(file.buffer);
-    _file.end(() => console.log(']>', file.originalname));
-    return file;
+    _file.end(async () => await this.uploadToFtp(path, parsedName));
+    return {
+      name: parsedName,
+      originalName: file.originalname,
+      mime: file.mimetype,
+      size: file.size,
+      url: 'http://raizes.rodrigocordeiro.com.br/pontos/' + parsedName,
+    };
   }
 
   public async uploadFile(file: File) {

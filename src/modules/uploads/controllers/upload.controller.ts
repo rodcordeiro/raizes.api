@@ -6,7 +6,7 @@ import {
   UseInterceptors,
   UploadedFile,
   UploadedFiles,
-  Logger,
+  // Logger,
 } from '@nestjs/common';
 import { ApiBody, ApiConsumes, ApiOperation, ApiTags } from '@nestjs/swagger';
 
@@ -18,7 +18,7 @@ import { UploadsService } from '../services/upload.services';
   path: '/uploads',
 })
 export class UploadsCrontroller {
-  private _logger = new Logger();
+  // private _logger = new Logger();
   constructor(private readonly _uploadsService: UploadsService) {}
   @Patch('/file')
   @ApiOperation({ summary: 'Uploads a single file' })
