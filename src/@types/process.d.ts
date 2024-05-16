@@ -21,6 +21,19 @@ declare global {
       readonly DB_NAME: string;
     }
   }
+  export interface File {
+    fieldname: string;
+    originalname: string;
+    encoding: string;
+    mimetype: string;
+    buffer: Buffer;
+    size: number;
+  }
+
+  interface Buffer {
+    type: string;
+    data: number[];
+  }
 }
 
 export {};

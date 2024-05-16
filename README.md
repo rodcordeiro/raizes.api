@@ -4,7 +4,8 @@
 - [x] giras_linha
 - [x] ritmos
 - [x] pontos
-- [ ] upload arquivos
+- [-] upload arquivos
+- [ ] upload ftp [https://github.com/AbdessalemLetaief/nestjs-ftp/blob/main/src/ftp.service.ts]
 - [ ] usuarios (halfdone,must review)
 - [ ] membros
 - [ ] guias

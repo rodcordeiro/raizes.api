@@ -15,6 +15,11 @@ export const envSchema = z.object({
   DB_USER: z.string(),
   DB_PWD: z.string(),
   DB_NAME: z.string(),
+
+  FTP_HOST: z.string(),
+  FTP_PORT: z.number(),
+  FTP_USER: z.string(),
+  FTP_PWD: z.string(),
 });
 
 export type EnvType = z.infer<typeof envSchema>;

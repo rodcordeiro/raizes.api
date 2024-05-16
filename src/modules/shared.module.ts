@@ -8,12 +8,14 @@ import { LinesModule } from '@/modules/lines/lines.module';
 import { GirasModule } from '@/modules/giras/giras.module';
 import { RythmsModule } from './rythms/rythms.module';
 import { PointsModule } from '@/modules/points/points.module';
+import { UploadsModule } from './uploads/upload.module';
 
 @Module({
   imports: [
     HealthModule,
     UsersModule,
     AuthModule,
+    UploadsModule,
     CategoriesModule,
     RythmsModule,
     LinesModule,
