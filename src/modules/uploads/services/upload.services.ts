@@ -1,11 +1,10 @@
 import { FtpProviders } from '@/core/ftp/providers/ftp.provider';
 import { Injectable } from '@nestjs/common';
-import { mkdirSync, createWriteStream, createReadStream } from 'node:fs';
+import { mkdirSync, createWriteStream } from 'node:fs';
 import { join } from 'node:path';
 
 @Injectable()
 export class UploadsService {
-  // constructor() {}
   constructor(private readonly _ftpService: FtpProviders) {}
 
   async uploadToFtp(path: string, name: string) {
