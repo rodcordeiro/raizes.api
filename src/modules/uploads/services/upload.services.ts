@@ -1,16 +1,16 @@
+import { FtpProviders } from '@/core/ftp/providers/ftp.provider';
 import { Injectable } from '@nestjs/common';
-import { FtpService } from 'nestjs-ftp';
 import { mkdirSync, createWriteStream, createReadStream } from 'node:fs';
 import { join } from 'node:path';
 
 @Injectable()
 export class UploadsService {
-  constructor(private readonly _ftpService: FtpService) {}
+  // constructor() {}
+  constructor(private readonly _ftpService: FtpProviders) {}
 
   async uploadToFtp(path: string, name: string) {
     try {
-      const _data = createReadStream(path);
-      await this._ftpService.upload(_data, '/pontos/' + name);
+      await this._ftpService.upload(path, '/pontos/' + name);
     } catch (error) {
       throw new Error(error);
     }

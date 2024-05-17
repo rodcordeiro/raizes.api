@@ -37,7 +37,6 @@ export class UploadsCrontroller {
     },
   })
   singleFile(@UploadedFile() file: File) {
-    console.log(file);
     return this._uploadsService.uploadFile(file);
   }
 

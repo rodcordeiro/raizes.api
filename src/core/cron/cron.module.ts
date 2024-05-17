@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ScheduleModule } from '@nestjs/schedule';
 
-import { JiraServices } from './services/jira.services';
+import { ExpurgeServices } from './services/expurge.services';
+import { PointsModule } from '@/modules/points/points.module';
 
 @Module({
-  imports: [ScheduleModule.forRoot()],
-  providers: [JiraServices],
+  imports: [ScheduleModule.forRoot(), PointsModule],
+  providers: [ExpurgeServices],
 })
 export class CronModule {}

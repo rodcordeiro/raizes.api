@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { BaseService } from '@/common/services/base.service';
 
 import { PointsEntity } from '../entities/points.entity';
-import { Repository } from 'typeorm';
+import { IsNull, Not, Repository } from 'typeorm';
 
 @Injectable()
 export class PointsService extends BaseService<PointsEntity> {
@@ -13,5 +13,19 @@ export class PointsService extends BaseService<PointsEntity> {
     private _repository: Repository<PointsEntity>,
   ) {
     super();
+  }
+
+  async getAudioUrls() {
+    try {
+      return this._repository.find({
+        select: ['audio_url'],
+
+        where: {
+          audio_url: Not(IsNull()),
+        },
+      });
+    } catch (err) {
+      throw err;
+    }
   }
 }
