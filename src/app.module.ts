@@ -10,6 +10,7 @@ import { NestJwtModule } from './core/jwt/jwt.module';
 import { CronModule } from './core/cron/cron.module';
 
 import { SharedModule } from './modules/shared.module';
+import { FtpModule } from './core/ftp/ftp.module';
 
 @Module({
   imports: [
@@ -21,9 +22,10 @@ import { SharedModule } from './modules/shared.module';
       },
     ]),
     DatabaseModule,
+    FtpModule,
+    CronModule,
     PassportModule,
     NestJwtModule,
-    CronModule,
     SharedModule,
   ],
   controllers: [],
