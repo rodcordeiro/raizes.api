@@ -4,9 +4,7 @@ WORKDIR /rod
 
 COPY . .
 
-RUN yarn
-
-RUN yarn build
+RUN yarn && yarn build
 
 EXPOSE 80
 
