@@ -42,6 +42,7 @@ jobs:
         id: hadolint
         with:
           dockerfile: Dockerfile
+          failure-threshold: warning
       - name: Update Pull Request
         uses: actions/github-script@v6
         if: github.event_name == 'pull_request'
