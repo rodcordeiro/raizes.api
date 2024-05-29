@@ -1,3 +1,4 @@
+import 'newrelic';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -8,7 +9,6 @@ import helmet from '@fastify/helmet';
 import compression from '@fastify/compress';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import fastifyCsrf from '@fastify/csrf-protection';
-// import fs from 'fs';
 
 import { AppModule } from '@/app.module';
 import { AppUtils } from '@/common/utils/app.util';
@@ -72,7 +72,6 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  // fs.writeFileSync('swagger-document.json', JSON.stringify(document, null, 2));
 
   SwaggerModule.setup('/swagger', app, document);
 
