@@ -8,14 +8,16 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiQuery, ApiTags } from '@nestjs/swagger';
 
 import { Auth } from '@/common/decorators/auth.decorator';
 
 import { PointsService } from '../services/points.service';
 import { CreatePointDTO } from '../dtos/create.dto';
 import { UpdatePointDTO } from '../dtos/update.dto';
+import { GetPointsDTO } from '../dtos/get.dto';
 
 @ApiTags('Pontos')
 @Controller({
@@ -26,13 +28,16 @@ export class PointsController {
   constructor(private readonly _service: PointsService) {}
 
   @Get()
-  async index() {
+  async index(@Query() queries: GetPointsDTO) {
+    console.log({ queries });
+    if (queries.linha)
+      return await this._service.findBy({ linha: +queries.linha });
     return await this._service.findAll();
   }
 
   @Get('/:id')
   async view(@Param('id') id: number) {
-    return this._service.findBy({ id: id });
+    return this._service.findOneBy({ id: id });
   }
 
   @Auth()

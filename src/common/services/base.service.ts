@@ -8,14 +8,18 @@ export abstract class BaseService<Entity = any> {
   async findAll() {
     return await this.repository.find();
   }
+
   async findBy(options: FindOneOptions<Entity>['where']) {
+    return await this.repository.findBy(options);
+  }
+  async findOneBy(options: FindOneOptions<Entity>['where']) {
     try {
-      const category = await this.repository.findOneOrFail({
+      const data = await this.repository.findOneOrFail({
         where: {
           ...options,
         },
       });
-      return category;
+      return data;
     } catch (err) {
       console.error(err);
       throw new BadRequestException('Entity not found');
@@ -27,7 +31,7 @@ export abstract class BaseService<Entity = any> {
     return await this.repository.save(details);
   }
   async update(id: number, data: any) {
-    const details = await this.findBy({ id } as any);
+    const details = await this.findOneBy({ id } as any);
     this.repository.merge(details, data);
     return await this.repository.save(details);
   }

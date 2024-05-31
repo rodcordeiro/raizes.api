@@ -32,7 +32,7 @@ export class RythmsController {
   }
   @Get('/:id')
   async view(@Param('id') id: number) {
-    return this._service.findBy({ id: id });
+    return this._service.findOneBy({ id: id });
   }
   @Post()
   @HttpCode(HttpStatus.CREATED)
