@@ -23,7 +23,7 @@ export class PointsEntity extends BaseEntity {
     name: 'linha',
     referencedColumnName: 'id',
   })
-  linha: number;
+  linha: LineEntity;
 
   @ManyToOne(() => RythmEntity, {
     eager: true,

@@ -36,7 +36,7 @@ export class GirasController {
     return this._service.findDetails(id);
   }
 
-  @Auth()
+  // @Auth()
   @Post()
   async create(@Body() data: CreateGiraDTO) {
     return this._service.store(data);
@@ -55,7 +55,7 @@ export class GirasController {
     return this._service.destroy(id);
   }
 
-  @Auth()
+  // @Auth()
   @Post('/:id/assign')
   async assign(@Param('id') id: number, @Body() data: AssignLineDTO[]) {
     return this._service.assignLine(id, data);

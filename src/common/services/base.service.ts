@@ -10,6 +10,7 @@ export abstract class BaseService<Entity = any> {
   }
 
   async findBy(options: FindOneOptions<Entity>['where']) {
+    console.log({ options });
     return await this.repository.findBy(options);
   }
   async findOneBy(options: FindOneOptions<Entity>['where']) {

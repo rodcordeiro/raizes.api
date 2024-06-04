@@ -10,7 +10,7 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { ApiQuery, ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 
 import { Auth } from '@/common/decorators/auth.decorator';
 
@@ -31,13 +31,13 @@ export class PointsController {
   async index(@Query() queries: GetPointsDTO) {
     console.log({ queries });
     if (queries.linha)
-      return await this._service.findBy({ linha: +queries.linha });
+      return await this._service.findBy({ linha: { id: +queries.linha } });
     return await this._service.findAll();
   }
 
   @Get('/:id')
   async view(@Param('id') id: number) {
-    return this._service.findOneBy({ id: id });
+    return this._service.findOneBy({ id });
   }
 
   @Auth()
