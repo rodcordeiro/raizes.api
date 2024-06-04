@@ -1,4 +1,4 @@
-import { applyDecorators, UseGuards } from '@nestjs/common';
+import { applyDecorators, SetMetadata, UseGuards } from '@nestjs/common';
 import { AccessTokenGuard } from '@/common/guards/accessToken.guard';
 import { RefreshTokenGuard } from '@/common/guards/refreshToken.guard';
 import { LocalGuard } from '@/common/guards/Local.guard';
@@ -17,4 +17,8 @@ export function WsAuth() {
 
 export function Reauth() {
   return applyDecorators(UseGuards(RefreshTokenGuard));
+}
+
+export function Public() {
+  return SetMetadata('isPublic', true);
 }

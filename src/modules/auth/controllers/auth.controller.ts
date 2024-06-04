@@ -14,7 +14,7 @@ import { Authenticate } from '@/common/interfaces/authenticated.interface';
 import { CreateUserDTO } from '@/modules/users/dto/create.dto';
 
 import { AuthService } from '@/modules/auth/services/auth.service';
-import { LocalAuth, Reauth } from '@/common/decorators/auth.decorator';
+import { Auth, LocalAuth, Reauth } from '@/common/decorators/auth.decorator';
 
 @ApiTags('Auth')
 @Controller({
@@ -43,6 +43,7 @@ export class AuthController {
     return this._authService.login(req.user);
   }
 
+  @Auth()
   @Post('/register')
   async store(@Body() body: CreateUserDTO) {
     return this._authService.register(body);
