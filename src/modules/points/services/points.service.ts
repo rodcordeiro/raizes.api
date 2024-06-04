@@ -19,7 +19,6 @@ export class PointsService extends BaseService<PointsEntity> {
     try {
       return this._repository.find({
         select: ['audio_url'],
-
         where: {
           audio_url: Not(IsNull()),
         },
