@@ -1,4 +1,3 @@
-import 'newrelic';
 import { NestFactory, Reflector } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -15,6 +14,10 @@ import { AppUtils } from '@/common/utils/app.util';
 import { version } from '../package.json';
 
 async function bootstrap() {
+  if (process.env.NODE_ENV === 'production') {
+    await import('newrelic');
+  }
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter({
