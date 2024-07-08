@@ -1,13 +1,3 @@
-- [x] categorias
-- [x] linhas
-- [x] giras
-- [x] giras_linha
-- [x] ritmos
-- [x] pontos
-- [-] upload arquivos
-- [ ] upload ftp [https://github.com/AbdessalemLetaief/nestjs-ftp/blob/main/src/ftp.service.ts]
-- [ ] usuarios (halfdone,must review)
-- [ ] membros
-- [ ] guias
-- [ ] pontos riscados
+# Raizes API
 
+ERP para gerenciamento de membros em um terreiro, com organização de pontos cantados, membros da casa e suas entidades.

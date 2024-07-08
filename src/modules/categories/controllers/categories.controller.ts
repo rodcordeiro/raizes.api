@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { Auth } from '@/common/decorators/auth.decorator';
+import { Auth, Public } from '@/common/decorators/auth.decorator';
 
 import { CategoryServices } from '../services/categories.service';
 import { CreateCategoryDTO } from '../dtos/create.dto';
@@ -23,6 +23,7 @@ import { CreateCategoryDTO } from '../dtos/create.dto';
 export class CategoryController {
   constructor(private readonly _service: CategoryServices) {}
 
+  @Public()
   @Get()
   async index() {
     return await this._service.findAll();

@@ -19,6 +19,9 @@ export class UpdatePointDTO extends createZodDto(UpdatePointSchema) {
   /** linha */
   @ApiProperty()
   linha?: number;
+  /** linha */
+  @ApiProperty()
+  tipo?: string;
   /** rythm */
   @ApiProperty()
   ritmo?: number;

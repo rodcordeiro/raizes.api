@@ -14,7 +14,9 @@ import { ApiTags } from '@nestjs/swagger';
 import { LineServices } from '../services/lines.service';
 import { CreateLineDTO } from '../dtos/create.dto';
 import { UpdateLineDTO } from '../dtos/update.dto';
+import { Auth, Public } from '@/common/decorators/auth.decorator';
 
+@Auth()
 @ApiTags('Linhas')
 @Controller({
   version: '1',
@@ -23,6 +25,7 @@ import { UpdateLineDTO } from '../dtos/update.dto';
 export class LineController {
   constructor(private readonly _service: LineServices) {}
 
+  @Public()
   @Get()
   async index() {
     return await this._service.findAll();

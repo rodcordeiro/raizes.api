@@ -11,6 +11,9 @@ export class PointsEntity extends BaseEntity {
   letra: string;
 
   @Column()
+  tipo: string;
+
+  @Column()
   audio_url?: string;
 
   /** Joins */

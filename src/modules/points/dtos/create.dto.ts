@@ -4,6 +4,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 const CreatePointSchema = z.object({
   letra: z.string(),
+  tipo: z.string(),
   linha: z.number(),
   ritmo: z.number(),
   audio_url: z.string().url().optional(),
@@ -16,12 +17,19 @@ export class CreatePointDTO extends createZodDto(CreatePointSchema) {
    */
   @ApiProperty()
   letra: string;
+
+  /** Tipo do ponto */
+  @ApiProperty()
+  tipo: string;
+
   /** linha */
   @ApiProperty()
   linha: number;
+
   /** rythm */
   @ApiProperty()
   ritmo: number;
+
   /** link do audio */
   @ApiProperty()
   audio_url?: string;
